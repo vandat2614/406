@@ -1,0 +1,12 @@
+1.
+	Phát hiện đối tượng (Object Detection): nhằm nhận diện và xác định các đối tượng cụ thể trong một bức ảnh hoặc video
+
+2.
+	Sliding window hoạt động bằng cách "trượt" một cửa sổ (window) trên ảnh để kiểm tra các vùng nhỏ của ảnh và xác định sự hiện diện của đối tượng trong từng vùng.
+
+3.
+	Khung giới hạn (bounding box) là một hình chữ nhật được vẽ quanh một đối tượng trong ảnh, dùng để xác định vị trí và kích thước của đối tượng đó, dung để đánh dấu sự hiện diện của đối tượng trong một vùng ảnh cụ thể.
+
+	Khung giới hạn được xác định bằng bốn thông số: (x,y,w,h)
+
+	Việc tính toán độ chính xác của việc phát hiện đối tượng có thể sử dụng các chỉ số như Intersection over Union (IoU), đánh giá sự trùng lặp giữa khung giới hạn dự đoán và khung giới hạn thực tế.

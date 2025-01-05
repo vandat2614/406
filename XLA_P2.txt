@@ -1,0 +1,88 @@
+1.
+	Supervised Learning: Học từ dữ liệu có nhãn, mục tiêu là dự đoán đầu ra từ đầu vào. Ví dụ: phân loại, hồi quy.
+
+	Unsupervised Learning: Học từ dữ liệu không nhãn, mục tiêu là tìm mẫu hoặc cấu trúc trong dữ liệu. Ví dụ: phân cụm, giảm chiều.
+
+	Reinforcement Learning: Tác nhân học qua tương tác với môi trường và nhận phản hồi (phần thưởng hoặc hình phạt). Ví dụ: chơi game, robot điều khiển.
+
+2. 
+	KNN (K-Nearest Neighbors) là một thuật toán phân loại và hồi quy trong học máy". phân loại dữ liệu dựa trên sự tương đồng giữa các điểm dữ liệu trong không gian đặc trưng.
+
+	Tính khoảng cách giữa điểm cần phân loại và tất cả các điểm trong dữ liệu huấn luyện
+	
+	Chọn k điểm gần nhất dựa trên khoảng cách đã tính.
+
+	 Gán nhãn cho điểm dữ liệu cần phân loại theo nhãn chiếm ưu thế trong k láng giềng gần nhất.
+
+3. 
+	Chia dữ liệu thành training, validation, và test set là cần thiết để đảm bảo mô hình học được từ dữ liệu và có khả năng tổng quát tốt khi áp dụng vào dữ liệu mới.
+
+	Training set: Dùng để huấn luyện mô hình, giúp mô hình học và tối ưu hóa các tham số.
+
+	Validation set: Dùng để điều chỉnh các tham số mô hình, giúp chọn mô hình tốt nhất và tránh overfitting (học quá kỹ vào dữ liệu huấn luyện, không tổng quát tốt).
+
+	Test set: Dùng để đánh giá hiệu suất cuối cùng của mô hình sau khi huấn luyện, đảm bảo mô hình có khả năng tổng quát tốt với dữ liệu chưa thấy trước đó.
+
+4. 
+	Overfitting (quá khớp) là hiện tượng khi mô hình học quá chi tiết từ dữ liệu huấn luyện, dẫn đến việc mô hình hoạt động rất tốt trên dữ liệu huấn luyện nhưng lại kém hiệu quả khi áp dụng vào dữ liệu mới (dữ liệu kiểm tra hoặc dữ liệu thực tế). Điều này xảy ra khi mô hình học các nhiễu hoặc đặc điểm không quan trọng từ dữ liệu huấn luyện.
+
+	Sử dụng dữ liệu nhiều hơn: Dữ liệu lớn giúp mô hình học các đặc trưng tổng quát hơn.
+ 
+	Sử dụng kỹ thuật regularization: Thêm một hình phạt vào hàm mất mát để giảm độ phức tạp của mô hình.
+
+	Sử dụng cross-validation: Kiểm tra mô hình trên nhiều phần dữ liệu để đánh giá khả năng tổng quát của mô hình.
+
+	Giảm độ phức tạp của mô hình: Dùng mô hình đơn giản hơn nếu dữ liệu không đủ lớn.
+
+	Early stopping: Dừng huấn luyện khi hiệu suất trên validation set bắt đầu giảm.
+
+
+5. 
+	Batch size là số lượng mẫu dữ liệu được xử lý qua mô hình trong mỗi lần cập nhật trọng số trong quá trình huấn luyện.
+
+	Tối ưu hóa: Một batch size thích hợp giúp cân bằng giữa tốc độ huấn luyện và độ chính xác của mô hình.
+
+	Học ổn định: Một giá trị batch size hợp lý giúp giảm sự biến động của gradient, dẫn đến quá trình huấn luyện ổn định hơn
+
+6.
+	Một epoch là một lần qua toàn bộ dữ liệu huấn luyện. Trong mỗi epoch, mô hình sẽ được huấn luyện trên tất cả các mẫu trong dữ liệu huấn luyện.
+
+	Một iteration là một lần cập nhật trọng số của mô hình trong quá trình huấn luyện. Mỗi iteration sử dụng một batch dữ liệu để cập nhật trọng số.
+
+7.
+	Hàm mất mát (loss function) giúp mô hình đánh giá độ sai lệch giữa dự đoán và giá trị thực tế, từ đó hướng dẫn quá trình tối ưu hóa.
+
+	Đánh giá độ chính xác của mô hình: Hàm mất mát đo lường mức độ sai khác giữa giá trị mô hình dự đoán và giá trị thực tế (ground truth).
+
+	Cung cấp tín hiệu cho quá trình huấn luyện: Hàm mất mát giúp thuật toán tối ưu hóa (như Gradient Descent) điều chỉnh các tham số của mô hình để giảm thiểu sai số, nâng cao hiệu suất của mô hình.
+
+	Xác định mục tiêu huấn luyện: Hàm mất mát là mục tiêu mà mô hình cần tối ưu hóa trong suốt quá trình huấn luyện. Mô hình sẽ cố gắng giảm giá trị hàm mất mát qua các epoch.
+
+8.
+	Regularization trong học máy là kỹ thuật được sử dụng để giảm thiểu overfitting bằng cách thêm một hình phạt vào hàm mất mát, giúp mô hình không học quá chi tiết các đặc điểm không quan trọng trong dữ liệu huấn luyện.
+
+	L2 Regularization (Ridge Regression): Thêm một hình phạt dựa trên bình phương của các tham số mô hình vào hàm mất mát, giúp hạn chế độ lớn của các trọng số. Giúp giảm độ phức tạp của mô hình và làm các trọng số trở nên nhỏ hơn.
+
+	L1 Regularization (Lasso Regression): Thêm một hình phạt dựa trên giá trị tuyệt đối của các tham số mô hình vào hàm mất mát. Khuyến khích một số trọng số trở thành 0, giúp mô hình chọn lọc các đặc trưng quan trọng và có thể dẫn đến việc giảm số lượng tham số trong mô hình.
+
+	Elastic Net: Là sự kết hợp của L1 và L2 regularization, kết hợp cả hai phương pháp để tận dụng ưu điểm của cả hai.
+
+9.
+	Normalization:  Là quá trình điều chỉnh giá trị của các đặc trưng sao cho chúng nằm trong một khoảng giá trị nhất định, thường là [0, 1] hoặc [-1, 1].
+
+	Giúp dữ liệu không bị lệch (skewed), đặc biệt khi các đặc trưng có đơn vị hoặc phạm vi khác nhau.
+
+	Tăng tốc quá trình học, đặc biệt đối với các thuật toán như gradient descent, vì chúng dễ dàng hội tụ hơn khi các đặc trưng có phạm vi tương đồng.
+	
+	Standardization:  Là quá trình điều chỉnh dữ liệu sao cho có giá trị trung bình bằng 0 và độ lệch chuẩn bằng 1.
+
+	Giúp xử lý dữ liệu có độ phân tán khác nhau (ví dụ: một đặc trưng có phạm vi từ 0 đến 100, trong khi đặc trưng khác có phạm vi từ 0 đến 1).
+
+	Cải thiện hiệu suất cho các mô hình yêu cầu giả định phân phối chuẩn, chẳng hạn như các mô hình tuyến tính và mạng neural.
+
+	Cả normalization và standardization giúp mô hình học nhanh hơn và hội tụ nhanh hơn.
+
+	Giảm bias do phạm vi dữ liệu: Các thuật toán học máy có thể bị ảnh hưởng bởi phạm vi của các đặc trưng nếu không chuẩn hóa dữ liệu.
+
+
+

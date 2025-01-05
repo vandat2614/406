@@ -1,0 +1,57 @@
+1.
+	Mạng neural cơ bản là một loại mạng nơ-ron nhân tạo trong đó mọi nơ-ron ở một lớp đều kết nối với tất cả các nơ-ron ở lớp kế tiếp.
+	
+	Cấu trúc:
+		
+		Lớp đầu vào (Input Layer): Nhận dữ liệu đầu vào, chẳng hạn như các đặc trưng của ảnh hoặc dữ liệu số.
+
+		Lớp ẩn (Hidden Layers): Gồm các nơ-ron tính toán, thực hiện việc học các mẫu hoặc mối quan hệ trong dữ liệu.
+
+		Lớp đầu ra (Output Layer): Trả về kết quả dự đoán, ví dụ: một nhãn phân loại hoặc giá trị số.
+
+2.
+	Sử dụng Convolutional Neural Networks (CNN) thay vì Fully Connected Networks (FCNN) trong xử lý ảnh là do CNN tận dụng tốt hơn cấu trúc không gian của ảnh và mang lại hiệu quả cao hơn.
+
+	Bảo toàn cấu trúc không gian của ảnh:
+   		- CNN sử dụng các phép **tích chập (convolution)** để trích xuất đặc trưng từ các vùng cục bộ trong ảnh, bảo toàn mối quan hệ giữa các pixel gần nhau.
+
+   		- FCNN phá vỡ cấu trúc không gian vì mỗi pixel được xử lý như một đầu vào riêng lẻ, không tận dụng được mối liên hệ giữa các pixel.
+
+	Giảm số lượng tham số:
+   		CNN chỉ cần học một số lượng nhỏ bộ lọc (filter), thay vì phải học trọng số cho từng kết nối như trong FCNN.
+
+		Điều này giúp giảm đáng kể số tham số, tránh overfitting và giảm yêu cầu tài nguyên tính toán.
+
+	Tính cục bộ và chia sẻ tham số:
+ 		Các bộ lọc trong CNN được chia sẻ trên toàn ảnh, giúp mô hình nhận biết đặc trưng như cạnh, góc,... ở bất kỳ vị trí nào.
+
+		FCNN yêu cầu một trọng số riêng cho mỗi kết nối, dẫn đến chi phí tính toán cao và khó tổng quát hóa.
+
+	Hiệu quả trong xử lý ảnh kích thước lớn:
+	
+		CNN sử dụng phép tích chập và pooling, giúp giảm kích thước ảnh dần dần mà vẫn giữ được thông tin quan trọng.
+
+		FCNN không có cơ chế giảm kích thước, dẫn đến khó xử lý với ảnh lớn.
+
+	Khả năng trích xuất đặc trưng tự động:
+		CNN học cách trích xuất đặc trưng quan trọng như cạnh, hình dạng, texture,... mà không cần tiền xử lý phức tạp.
+  		FCNN không có khả năng này, phụ thuộc nhiều vào đặc trưng đầu vào do con người thiết kế.
+
+3. 
+	Convolutional layer là lớp chính trong mạng nơ-ron tích chập (CNN), dùng để trích xuất đặc trưng từ dữ liệu đầu vào, đặc biệt là ảnh. Nó thực hiện phép tích chập (convolution) giữa đầu vào và các bộ lọc (kernel) để tạo ra đầu ra gọi là feature map.
+
+	Kernel là một ma trận nhỏ được sử dụng để thực hiện phép tích chập trên đầu vào.
+là công cụ chính xác định kiểu đặc trưng (cạnh, góc, v.v.).
+
+4.
+	Pooling layer giảm kích thước của feature map, giữ lại thông tin quan trọng và giảm số lượng tham số trong mô hình.
+
+	Max Pooling: Lấy giá trị lớn nhất trong mỗi vùng, tập trung vào đặc trưng nổi bật.
+	Average Pooling: Lấy giá trị trung bình trong mỗi vùng, giữ thông tin tổng quát hơn.
+
+
+5. 
+	VGG16 là một mô hình CNN sâu, đơn giản, dễ triển khai, và hiệu quả cho xử lý ảnh, nổi bật với việc sử dụng kernel 3×3 và cấu trúc đồng nhất.
+	Gồm 16 lớp có trọng số (13 convolutional + 3 fully connected).
+	Tăng số lượng feature map theo chiều sâu (từ 64 đến 512).
+	Chỉ sử dụng kernel 3×3 và pooling 2×2, giúp dễ triển khai và tối ưu hóa.

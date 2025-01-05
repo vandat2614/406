@@ -1,0 +1,81 @@
+1.
+	
+	Ảnh số là ảnh được mã hóa dưới dạng dữ liệu số,  được tạo ra bằng cách chuyển đổi thông tin ánh sáng hoặc màu sắc thành các giá trị số. Những giá trị này được tổ chức dưới dạng ma trận hoặc lưới các điểm ảnh (pixel). Mỗi điểm ảnh là đơn vị nhỏ nhất của ảnh số, chứa thông tin về độ sáng (grayscale) hoặc màu sắc	
+	
+	Ảnh số được biểu diễn dưới dạng một ma trận số học:
+
+		Ảnh xám: Mỗi điểm ảnh được biểu diễn bằng một giá trị số, thường nằm trong khoảng từ 0 (màu đen) đến 255 (màu trắng) nếu dùng 8 bit
+
+		Ảnh màu: biểu diễn bằng ba ma trận, tương ứng với ba kênh màu. Mỗi kênh là một ma trận giá trị số tương tự như ảnh xám, kết hợp tạo thành một màu tại mỗi điểm ảnh.
+		
+		Ảnh nhị phân chỉ có hai giá trị: 0 (đen) và 1 (trắng), thường được dùng trong các ứng dụng phân vùng ảnh.
+
+		Vai trò chính của pixel là cung cấp dữ liệu đầu vào để xử lý và phân tích ảnh.
+
+2. 
+	Điểm ảnh (pixel) là đơn vị cơ bản của một ảnh số. Mỗi điểm ảnh đại diện cho một giá trị ánh sáng hoặc màu sắc tại một vị trí cụ thể trong ảnh.
+	
+	Biểu diễn thông tin hình ảnh: Tất cả thông tin về màu sắc, độ sáng, hình dạng, cấu trúc của ảnh đều được lưu trữ trong các điểm ảnh.
+
+3.
+	Độ phân giải là chỉ số đo lường mức độ chi tiết của ảnh, được xác định bởi số lượng pixel hoặc mật độ pixel trên mỗi đơn vị không gian (dpi hoặc ppi).
+
+
+4. 
+	Lọc thông thấp (low pass filter) cho phép các tần số thấp (chủ yếu là các chi tiết mượt mà, không có nhiều biến động) đi qua, trong khi các tần số cao (chủ yếu là nhiễu và các chi tiết sắc nét) bị loại bỏ. Trong xử lý ảnh, lọc thông thấp giúp làm mờ ảnh, giảm nhiễu và tạo ra hiệu ứng làm mịn, như làm mờ các chi tiết không mong muốn hoặc tạo ra hiệu ứng mượt mà cho ảnh.
+
+	Ví dụ: bộ lọc Gaussian.
+
+5.
+	Lọc trung vị (median filter) hoạt động bằng cách thay thế giá trị của mỗi pixel trong ảnh bằng giá trị trung vị của các pixel trong một vùng lân cận xung quanh nó (thường là vùng hình vuông hoặc hình tròn)
+
+	Nhiễu muối tiêu (salt-and-pepper noise) là loại nhiễu trong ảnh, biểu hiện dưới dạng các điểm ảnh có giá trị cực kỳ cao (trắng, giống như muối) hoặc cực kỳ thấp (đen, giống như hạt tiêu), tạo ra các đốm sáng và tối bất thường trên ảnh
+
+	Khi có một pixel nhiễu với giá trị cực đại (255) hoặc cực tiểu (0), nó sẽ không ảnh hưởng đến giá trị trung vị nếu phần lớn các pixel trong vùng lân cận có giá trị bình thường.
+Giá trị trung vị trong một vùng xung quanh pixel bị nhiễu sẽ không bị ảnh hưởng bởi các giá trị cực đoan. Nó hiệu quả vì loại bỏ nhiễu muối tiêu mà không làm mờ các biên hoặc cấu trúc ảnh quan trọng, khác với các bộ lọc thông thấp có thể làm mờ ảnh.
+
+6.
+	Phát hiện cạnh (edge detection) nhằm xác định các biên (cạnh) trong ảnh, nơi mà sự thay đổi đột ngột về độ sáng (intensity) hoặc màu sắc xảy ra. Cạnh thường tương ứng với các biên giới của các đối tượng, vùng, hoặc các chi tiết quan trọng trong ảnh.
+
+	Sobel Operator: Sử dụng hai bộ lọc Sobel (một cho hướng ngang, một cho hướng dọc) để tính toán độ thay đổi của độ sáng tại mỗi điểm trong ảnh
+
+	Canny Edge Detector: làm mờ ảnh bằng bộ lọc Gaussian, tính toán gradient của ảnh, loại bỏ các cạnh yếu và giữ lại các cạnh mạnh, rồi xác định các đường biên mạch bằng thuật toán phân ngưỡng kép.
+
+	Prewitt Operator: Tương tự như Sobel, nhưng sử dụng các bộ lọc Prewitt để tính gradient của ảnh theo chiều ngang và dọc
+
+7.
+	Histogram (biểu đồ tần suất) là một đồ thị thể hiện phân phối độ sáng hoặc màu sắc của các pixel trong một ảnh. Nó được sử dụng để phân tích độ sáng, tương phản và áp dụng các phương pháp cân bằng histogram.
+
+8.
+	
+	Cân bằng histogram (Histogram Equalization  phân phối lại các giá trị độ sáng (hoặc màu sắc) sao cho chúng trải đều trong toàn bộ phạm vi giá trị có thể của ảnh.
+
+	Tăng cường độ tương phản: Cân bằng histogram giúp phân bố các giá trị pixel một cách đồng đều hơn, từ đó làm ảnh sáng rõ hơn và tăng độ tương phản. 
+
+	Phát hiện chi tiết: Khi phân phối giá trị pixel được cải thiện, các chi tiết trong ảnh, đặc biệt là những phần có độ sáng yếu, sẽ trở nên rõ ràng hơn.
+
+	Cải thiện chất lượng ảnh: Cân bằng histogram có thể giúp loại bỏ các vùng ảnh quá sáng hoặc quá tối, giúp ảnh có vẻ tự nhiên và dễ nhìn hơn.
+
+	Áp dụng cho ảnh đơn sắc: Cân bằng histogram chủ yếu được sử dụng cho ảnh grayscale. Tuy nhiên, nó cũng có thể áp dụng cho từng kênh màu trong ảnh RGB 
+
+	Giới hạn trong một số trường hợp: Đôi khi, quá trình cân bằng histogram có thể làm mất một số chi tiết quan trọng trong ảnh (như chi tiết trong các vùng sáng hoặc tối cực đoan).
+
+9.
+	Biến đổi hình học (geometric transformation) trong xử lý ảnh là quá trình thay đổi vị trí, hình dạng hoặc kích thước của ảnh mà không thay đổi nội dung của ảnh.
+
+	Dịch chuyển (Translation): di chuyển tất cả các pixel trong ảnh một khoảng cách nhất định theo chiều ngang và/hoặc chiều dọc.
+
+	Xoay (Rotation): xoay ảnh xung quanh một điểm cố định (thường là trung tâm của ảnh) với một góc quay xác định.
+
+	Phóng to/Thu nhỏ (Scaling): thay đổi kích thước của ảnh, có thể làm ảnh lớn hơn (phóng to) hoặc nhỏ hơn (thu nhỏ) theo tỷ lệ nhất định.
+
+	Phép phản chiếu (Reflection) lật hoặc đảo ngược theo một trục cố định, tạo ra một bản sao đối xứng của ảnh ban đầu (Vertical  or Horizontal )
+ 
+	Tăng cường dữ liệu: Sử dụng các thao tác biến đổi để tạo ra các biến thể của ảnh, giúp huấn luyện các mô hình học máy mạnh mẽ hơn. 
+
+	Cải thiện hình ảnh: Điều chỉnh vị trí hoặc kích thước của ảnh để phù hợp với yêu cầu.
+
+10.
+	Xác định điểm quay: Thông thường, điểm quay là trung tâm của ảnh, nhưng có thể chọn bất kỳ điểm nào trong ảnh
+
+	Tính toán tọa độ pixel mới: Mỗi pixel trong ảnh sẽ được di chuyển đến một vị trí mới sau khi quay, được tính dựa vào ma trận quay
